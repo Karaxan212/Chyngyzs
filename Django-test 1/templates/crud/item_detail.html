@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{{ item.title }}</title>
+</head>
+<body>
+    <main>
+        <p><a href="{% url 'crud:item_list' %}">К списку записей</a></p>
+        <h1>{{ item.title }}</h1>
+        <p>{{ item.description|linebreaksbr|default:"Без описания" }}</p>
+        <a href="{% url 'crud:item_update' item.pk %}">Изменить</a>
+        <a href="{% url 'crud:item_delete' item.pk %}">Удалить</a>
+    </main>
+</body>
+</html>

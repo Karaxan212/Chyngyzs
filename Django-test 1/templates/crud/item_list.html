@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Записи</title>
+</head>
+<body>
+    <main>
+        <h1>Записи</h1>
+        <p><a href="{% url 'crud:item_create' %}">Добавить запись</a></p>
+        {% for item in items %}
+            <article>
+                <h2><a href="{% url 'crud:item_detail' item.pk %}">{{ item.title }}</a></h2>
+                <p>{{ item.description|default:"Без описания" }}</p>
+                <a href="{% url 'crud:item_update' item.pk %}">Изменить</a>
+                <a href="{% url 'crud:item_delete' item.pk %}">Удалить</a>
+            </article>
+        {% empty %}
+            <p>Записей пока нет.</p>
+        {% endfor %}
+    </main>
+</body>
+</html>

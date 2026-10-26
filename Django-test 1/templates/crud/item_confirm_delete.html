@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Удалить запись</title>
+</head>
+<body>
+    <main>
+        <h1>Удалить запись «{{ object.title }}»?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Удалить</button>
+        </form>
+        <p><a href="{% url 'crud:item_detail' object.pk %}">Отмена</a></p>
+    </main>
+</body>
+</html>
