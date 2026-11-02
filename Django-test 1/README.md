@@ -39,3 +39,6 @@ python manage.py migrate
 ```powershell
 python manage.py test
 ```
+
+При каждом запуске тестов документация с перечнем проверок и их результатами
+автоматически создается или обновляется в `docs/test_documentation.md`.

@@ -28,6 +28,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "blog_project.urls"
+TEST_RUNNER = "crud.test_runner.DocumentingDiscoverRunner"
 
 TEMPLATES = [
     {
