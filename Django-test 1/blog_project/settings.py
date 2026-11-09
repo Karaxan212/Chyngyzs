@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog.apps.BlogConfig",
     "crud.apps.CrudConfig",
+    "tours.apps.ToursConfig",
 ]
 
 MIDDLEWARE = [

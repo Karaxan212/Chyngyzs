@@ -1,0 +1,20 @@
+{% extends "tours/base.html" %}
+{% block title %}Активные туры — Тропы{% endblock %}
+{% block content %}
+    <p class="tag">Путешествия в своем ритме</p>
+    <h1>Ближе к горам, ближе к себе.</h1>
+    <p class="intro">Небольшие группы, открытые маршруты и знакомство с Кыргызстаном верхом, пешком или на мотоцикле.</p>
+    <section class="grid" aria-label="Каталог туров">
+        {% for tour in tours %}
+            <article class="tour">
+                <div>{% for category in tour.categories.all %}<span class="tag">{{ category.name }}</span>{% endfor %}</div>
+                <h2><a href="{% url 'tours:tour_detail' tour.pk %}">{{ tour.title }}</a></h2>
+                <p>{{ tour.description|truncatewords:24 }}</p>
+                <p>{{ tour.duration_hours }} ч · {{ tour.price }} сом</p>
+                <a class="button" href="{% url 'tours:tour_detail' tour.pk %}">Выбрать маршрут</a>
+            </article>
+        {% empty %}
+            <p>Пока нет доступных туров. Загляните позже.</p>
+        {% endfor %}
+    </section>
+{% endblock %}

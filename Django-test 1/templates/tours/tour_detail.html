@@ -1,0 +1,22 @@
+{% extends "tours/base.html" %}
+{% block title %}{{ tour.title }} — Тропы{% endblock %}
+{% block content %}
+    <p><a href="{% url 'tours:tour_list' %}">Все маршруты</a></p>
+    <div>{% for category in tour.categories.all %}<span class="tag">{{ category.name }}</span>{% endfor %}</div>
+    <h1>{{ tour.title }}</h1>
+    <p class="intro">{{ tour.description }}</p>
+    <p><strong>{{ tour.duration_hours }} ч</strong> · <strong>{{ tour.price }} сом</strong></p>
+    {% if user.is_authenticated %}
+        <p><a class="button" href="{% url 'tours:booking_create' tour.pk %}">Забронировать</a></p>
+    {% else %}
+        <p><a class="button" href="{% url 'login' %}?next={% url 'tours:booking_create' tour.pk %}">Войдите, чтобы забронировать</a></p>
+    {% endif %}
+    <section>
+        <h2>Отзывы участников</h2>
+        {% for review in tour.reviews.all %}
+            <article class="review"><strong>{{ review.rider.username }}</strong><p>{{ review.text }}</p></article>
+        {% empty %}
+            <p>Отзывов пока нет.</p>
+        {% endfor %}
+    </section>
+{% endblock %}

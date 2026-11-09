@@ -1,13 +1,13 @@
 # Документация тестирования
 
-Сформировано автоматически: 2026-11-02T15:49:07+06:00.
+Сформировано автоматически: 2026-11-09T13:45:39+06:00.
 
 Документ обновляется при каждом запуске `python manage.py test`.
 
 ## Результаты
 
-- Всего тестов: 19
-- Пройдено: 19
+- Всего тестов: 30
+- Пройдено: 30
 - Не пройдено: 0
 - Ошибок: 0
 - Пропущено: 0
@@ -36,3 +36,14 @@
 | `crud.tests.ItemCrudTests.test_unknown_item_returns_404` | Страницы просмотра, изменения и удаления отсутствующей записи дают 404. | Пройден |
 | `crud.tests.ItemCrudTests.test_update_item` | Редактирование сохраняет изменения и перенаправляет к списку. | Пройден |
 | `crud.tests.ItemCrudTests.test_update_item_without_title_is_rejected` | Форма редактирования требует заголовок и не меняет запись. | Пройден |
+| `tours.tests.TourWorkflowTests.test_booking_post_allows_same_rider_at_a_different_time` | booking post allows same rider at a different time | Пройден |
+| `tours.tests.TourWorkflowTests.test_booking_post_rejects_second_tour_at_same_datetime` | booking post rejects second tour at same datetime | Пройден |
+| `tours.tests.TourWorkflowTests.test_booking_post_requires_login` | booking post requires login | Пройден |
+| `tours.tests.TourWorkflowTests.test_booking_post_saves_authenticated_user_and_tour` | booking post saves authenticated user and tour | Пройден |
+| `tours.tests.TourWorkflowTests.test_registration_post_creates_user_and_one_to_one_profile` | registration post creates user and one to one profile | Пройден |
+| `tours.tests.TourWorkflowTests.test_registration_rejects_mismatched_passwords` | registration rejects mismatched passwords | Пройден |
+| `tours.tests.TourWorkflowTests.test_review_post_rejects_tour_not_yet_completed` | review post rejects tour not yet completed | Пройден |
+| `tours.tests.TourWorkflowTests.test_review_post_requires_login` | review post requires login | Пройден |
+| `tours.tests.TourWorkflowTests.test_review_post_saves_review_for_completed_booking` | review post saves review for completed booking | Пройден |
+| `tours.tests.TourWorkflowTests.test_rider_can_review_multiple_completed_tours` | rider can review multiple completed tours | Пройден |
+| `tours.tests.TourWorkflowTests.test_tour_pages_show_tour_and_many_to_many_categories` | tour pages show tour and many to many categories | Пройден |
